@@ -8,49 +8,51 @@
 ![Azure Monitor](https://img.shields.io/badge/Azure-Monitoring-00BCF2)
 ![PowerShell](https://img.shields.io/badge/PowerShell-Automation-5391FE?logo=powershell)
 
-Production-grade Azure High Availability Infrastructure implementing Azure Load Balancer, Backend Pools, Health Probes, Availability Sets, Failover Validation, Traffic Distribution and Enterprise Networking Architecture.
+Production-grade Azure High Availability Infrastructure implementing Azure Load Balancer, Health Probes, Backend Pools, Availability Sets, Traffic Distribution, Failover Validation and Enterprise Networking Design.
 
 ---
 
 # 📌 Project Overview
 
-This project demonstrates implementation of enterprise-grade Azure High Availability infrastructure using:
+This project demonstrates enterprise-grade Azure networking implementation focused on building highly available backend infrastructure capable of automatic traffic distribution and failover handling.
+
+Implemented capabilities:
 
 ✅ Azure Standard Load Balancer
 
-✅ Multi VM Backend Infrastructure
+✅ Backend Pool Architecture
 
-✅ Health Probe Monitoring
+✅ Health Probe Validation
 
-✅ Availability Set Architecture
+✅ Multi VM Infrastructure
 
-✅ Automatic Traffic Distribution
+✅ Automatic Failover
 
-✅ Production-grade Failover Validation
+✅ Availability Set Deployment
 
-✅ Backend Redundancy
+✅ Azure Compute Gallery
 
-✅ Infrastructure Monitoring
+✅ Production-grade Availability Design
 
 ---
 
 # 🎯 Business Requirement
 
-Modern cloud infrastructure requires:
+Enterprise applications require:
 
-❌ Zero single point of failure
+❌ Zero Single Point Of Failure
 
-❌ Backend redundancy
+❌ Traffic Distribution
 
-❌ Automatic failover
+❌ Backend Redundancy
 
-❌ Traffic distribution
+❌ Automatic Recovery
 
-❌ Infrastructure resiliency
+❌ Infrastructure Availability
 
-❌ Availability validation
+❌ Production-grade Reliability
 
-This project solves those challenges using Azure cloud networking principles.
+This project solves those problems using Azure networking and high availability principles.
 
 ---
 
@@ -71,7 +73,7 @@ Probe[Health Probe TCP 80]
 
 User -->|Traffic via Port 80| LB
 
-subgraph Availability Set
+subgraph Availability_Set_High_Availability
 
 LB -->|Backend Pool Route 1| VM1
 
@@ -93,17 +95,19 @@ LB --> Probe
 
 ### 🌐 Frontend IP Configuration
 
-Public IP associated with Azure Standard Load Balancer for external traffic ingress.
+Public IP mapped with Azure Load Balancer for incoming traffic.
 
 ---
 
 ### 🎯 Backend Pool
 
-Multiple Linux Virtual Machines grouped together for traffic distribution.
+Collection of backend Virtual Machines responsible for serving application traffic.
 
-Configured inside:
+Implemented:
 
 ✅ Availability Set
+
+✅ Backend Redundancy
 
 ✅ Fault Domain Isolation
 
@@ -115,17 +119,17 @@ Configured inside:
 
 Configured:
 
-TCP Port 80 Monitoring
+TCP Port 80
 
 Capabilities:
 
-✅ Automatic VM validation
+✅ Backend Validation
 
-✅ Backend health monitoring
+✅ Health Monitoring
 
-✅ Unhealthy instance removal
+✅ Automatic Traffic Rerouting
 
-✅ Automatic rerouting
+✅ Unhealthy VM Removal
 
 ---
 
@@ -133,15 +137,15 @@ Capabilities:
 
 Configured:
 
-Frontend Port → Backend Port Mapping
+Frontend → Backend Port Mapping
 
 Capabilities:
 
-✅ Even traffic distribution
+✅ Traffic Distribution
 
-✅ Backend redundancy
+✅ Availability Protection
 
-✅ High availability
+✅ High Availability
 
 ---
 
@@ -153,7 +157,7 @@ variables.tf
 
 | Variable Name | Description | Default Value |
 | :--- | :--- | :--- |
-| resource_group_name | Azure Resource Group | azure-lb-ha-rg |
+| resource_group_name | Azure Resource Group Name | azure-lb-ha-rg |
 | location | Azure Region | East US |
 | vm_count | Backend VM Count | 2 |
 | vm_size | Azure VM SKU | Standard_B1s |
@@ -164,16 +168,16 @@ variables.tf
 
 | Technology | Purpose |
 |---|---|
-| Microsoft Azure | Cloud Platform |
-| Azure VM | Backend Servers |
+| Azure | Cloud Platform |
+| Azure VM | Backend Infrastructure |
 | Ubuntu Linux | Operating System |
 | Apache2 | Web Layer |
 | PHP | Application Runtime |
 | Azure Load Balancer | Traffic Distribution |
 | Azure Compute Gallery | VM Image Standardization |
 | Azure Health Probe | Backend Monitoring |
-| NSG | Network Security |
-| PowerShell | Traffic Simulation |
+| NSG | Security Rules |
+| PowerShell | Traffic Testing |
 | Azure Monitor | Monitoring |
 
 ---
@@ -182,51 +186,25 @@ variables.tf
 
 ✅ Azure Standard Load Balancer
 
-✅ Frontend Public IP
-
 ✅ Backend Pool
 
-✅ Availability Set
+✅ Frontend Public IP
 
 ✅ Health Probe
 
-✅ Azure Compute Gallery
-
-✅ Linux VM Infrastructure
+✅ Availability Set
 
 ✅ Azure Monitor
 
+✅ Compute Gallery
+
 ✅ NSG Rules
-
----
-
-# 📂 Project Structure
-
-```text
-
-azure-load-balancer-high-availability/
-
-├── images/
-
-│ ├── architecture-diagram.png
-
-│ ├── monitoring.png
-
-│ ├── failover-testing.png
-
-│ └── load-balancer-config.png
-
-├── README.md
-
-```
 
 ---
 
 # 🚀 Deployment Process
 
 ## 1️⃣ Linux VM Deployment
-
-Created Linux VM.
 
 Installed:
 
@@ -238,11 +216,9 @@ sudo apt install apache2 php -y
 
 Configured:
 
-✅ Apache
-
-✅ PHP
-
-✅ Website Files
+- Apache
+- PHP
+- Website Files
 
 ---
 
@@ -256,25 +232,25 @@ Created:
 
 Benefits:
 
-✅ Standardized deployment
+✅ Faster Provisioning
 
-✅ Faster provisioning
+✅ Standardization
 
-✅ Consistency
+✅ Repeatable Infrastructure
 
 ---
 
-## 3️⃣ Backend VM Scaling
+## 3️⃣ Secondary VM Deployment
 
-Provisioned secondary VM.
+Provisioned second backend VM.
 
 Validated:
 
-✅ Same runtime environment
+✅ Same Runtime
 
-✅ Same web application
+✅ Same Application
 
-✅ Same backend configuration
+✅ Same Configuration
 
 ---
 
@@ -282,7 +258,7 @@ Validated:
 
 Configured:
 
-- Frontend Public IP
+- Frontend IP
 
 - Backend Pool
 
@@ -292,7 +268,21 @@ Configured:
 
 ---
 
-## 5️⃣ Health Probe Validation
+## 5️⃣ Backend Pool Configuration
+
+Added backend servers.
+
+Capabilities:
+
+✅ Traffic Distribution
+
+✅ Backend Redundancy
+
+✅ Failover Protection
+
+---
+
+## 6️⃣ Health Probe Validation
 
 Configured:
 
@@ -300,11 +290,11 @@ TCP Port 80
 
 Validated:
 
-✅ Health monitoring
+✅ VM Health Validation
 
-✅ Automatic failover
+✅ Backend Monitoring
 
-✅ Backend availability
+✅ Automatic Failover
 
 ---
 
@@ -331,13 +321,13 @@ PowerShell Validation:
 
 Observed:
 
-✅ CPU spike
+✅ CPU Increase
 
-✅ Traffic distribution
+✅ Traffic Distribution
 
-✅ Backend balancing
+✅ Backend Balancing
 
-✅ Stable availability
+✅ Stable Availability
 
 ---
 
@@ -345,21 +335,21 @@ Observed:
 
 Scenario:
 
-1. Website opened using LB Public IP
+1. Website opened through LB Public IP
 
-2. Backend VM stopped manually
+2. Backend VM manually stopped
 
-3. Multiple refresh validation
+3. Traffic behavior validated
 
 Result:
 
-✅ Website remained online
+✅ Zero Downtime
 
-✅ Automatic traffic reroute
+✅ Automatic Traffic Redirection
 
-✅ Health probe validation
+✅ Health Probe Operational
 
-✅ Backend redundancy operational
+✅ Backend Redundancy Working
 
 ---
 
@@ -367,12 +357,12 @@ Result:
 
 | Challenge | Solution |
 |---|---|
-| Website inaccessible | NSG inbound rule |
-| VM image confusion | Azure Compute Gallery |
-| Public IP issue | Dedicated frontend IP |
-| VM not visible in pool | Same VNet validation |
-| Health Probe failed | TCP Probe correction |
-| Load balancing validation | PowerShell traffic generation |
+| Website inaccessible | NSG Rule Configuration |
+| VM deployment standardization | Compute Gallery |
+| Public IP limitation | Dedicated Frontend IP |
+| VM not visible in pool | Network Validation |
+| Health Probe failed | TCP Probe Fix |
+| Needed balancing proof | PowerShell Traffic Testing |
 
 ---
 
@@ -380,25 +370,25 @@ Result:
 
 ## Architecture
 
-![Architecture](images/architecture-diagram.png)
+![Architecture](images/architecture-diagram.PNG)
 
 ---
 
-## Load Testing
+## Monitoring
 
-![Monitoring](images/monitoring.png)
+![Monitoring](images/monitoring.PNG)
 
 ---
 
 ## Failover Validation
 
-![Failover](images/failover-testing.png)
+![Failover](images/failover-testing.PNG)
 
 ---
 
 ## Load Balancer Configuration
 
-![Load Balancer](images/load-balancer-config.png)
+![Load Balancer](images/load-balancer-config.PNG)
 
 ---
 
@@ -406,15 +396,15 @@ Result:
 
 Validated:
 
-✅ CPU Utilization
-
-✅ Backend Health
-
 ✅ Traffic Distribution
 
-✅ Availability Metrics
+✅ CPU Utilization
 
-✅ Failover Behavior
+✅ Health Probe Behavior
+
+✅ Backend Availability
+
+✅ Failover Validation
 
 Using:
 
@@ -434,37 +424,33 @@ Backend Pool Management
 
 Health Probe Configuration
 
-Azure VM
-
-NSG Rules
-
-Linux Administration
+Azure Virtual Machines
 
 Traffic Distribution
 
-Failover Validation
+Failover Testing
 
-Cloud Monitoring
+Linux Administration
 
-Azure Compute Gallery
+Azure Monitoring
+
+Cloud Operations
 
 ---
 
 # 📈 Project Outcome
 
-Successfully implemented enterprise-grade Azure High Availability Infrastructure supporting:
-
-✅ Automatic Failover
+Successfully implemented highly available Azure backend infrastructure supporting:
 
 ✅ Traffic Distribution
+
+✅ Automatic Failover
 
 ✅ Backend Redundancy
 
 ✅ Production-grade Availability
 
-✅ Health Validation
-
-✅ Scalable Cloud Architecture
+✅ Infrastructure Reliability
 
 ---
 
