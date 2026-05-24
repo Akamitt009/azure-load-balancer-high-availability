@@ -368,32 +368,11 @@ Result:
 
 # 📸 Project Proof Screenshots
 
-## Architecture
+## 🏗️ Architecture Diagram
 
-![Architecture](images/architecture-diagram.PNG)
-
----
-
-## Monitoring
-
-![Monitoring](images/monitoring.PNG)
+![Azure Architecture](images/architecture-diagram.png)
 
 ---
-
-## Failover Validation
-
-![Failover](images/failover-testing.PNG)
-
----
-
-## Load Balancer Configuration
-
-![Load Balancer](images/load-balancer-config.PNG)
-
----
-
-# 📊 Monitoring & Validation
-
 Validated:
 
 ✅ Traffic Distribution
